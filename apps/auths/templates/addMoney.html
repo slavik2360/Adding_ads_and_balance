@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>{{ Foo }}</p>
+    <p> {{ balance }} </p>
+
+    <form action="/auth/money/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="money">Сумма</label>
+        <input type="text" placeholder="Money" name="money" id="money"><br>
+        
+        <input type="radio" name="bolean" value="True" checked>Пополнить<br>
+        <input type="radio" name="bolean" value="False">Потратить<br>
+
+
+        <input type="submit" value="Кнопка">
+        
+        
+       
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .stage {
+            display: flex;
+            height: 330px;
+            width: 100%;
+        }
+        .box {
+            align-self: flex-start;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            height: 200px;
+            margin: 0 auto 0 auto;
+            transform-origin: bottom;
+            width: 200px;
+        }
+        .bounce-3 {
+            animation-name: bounce-3;
+            animation-timing-function: ease;
+        }
+        @keyframes bounce-3 {
+            0%   { transform: translateY(0); }
+            30%  { transform: translateY(-100px); }
+            50%  { transform: translateY(0); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Тут Реклама</h1>
+
+    <!-- {{ ads }} -->
+
+    {% for ad in ads %}
+    <a href="{{ ad.link }}">
+        <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+    </a>
+    {% endfor %}
+
+
+    {% for ad in ads %}
+        <div class="stage">
+            <div class="box bounce-3">
+                <a href="{{ ad.link }}">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+                    <p style="color: black;">{{ ad.title }}</p>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
