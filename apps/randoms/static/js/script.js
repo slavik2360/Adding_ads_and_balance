@@ -1,6 +1,7 @@
 const wheel = document.getElementById('wheel');
 const spinButton = document.getElementById('spin-button');
 let spinning = false;
+const userId = 1;
 
 
 spinButton.addEventListener('click', () => {
@@ -29,7 +30,8 @@ spinButton.addEventListener('click', () => {
           url: '/random/',
           data: {
             'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
-            'result': result
+            'result': result,
+            'userId': userId
           },
           success: function(response) {
             console.log('Результат успешно отправлен на сервер');
