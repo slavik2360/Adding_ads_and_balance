@@ -28,8 +28,8 @@ spinButton.addEventListener('click', () => {
           type: 'POST',
           url: '/random/',
           data: {
-          'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
-          'result': result
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+            'result': result
           },
           success: function(response) {
             console.log('Результат успешно отправлен на сервер');

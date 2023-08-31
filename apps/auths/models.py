@@ -88,17 +88,8 @@ class MyUser(AbstractBaseUser,PermissionsMixin):
                 balance -= i.amount
         print(balance)
         return balance
-    
-
-    # def add_balance(self, amount):
-    #     self.balance += amount
-    #     self.save()
-
-    #     Transaction.objects.create(user=self, amount=Decimal(amount), is_filled=True)
 
     objects = MyUserManager()
-    
-   
 
     REQUIRED_FIELDS = []
     USERNAME_FIELD = 'email'
