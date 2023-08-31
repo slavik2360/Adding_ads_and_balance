@@ -1,10 +1,6 @@
 from django.urls import path
-
-from randoms.views import RandomView
-
-
+from .views import RandomView
 
 urlpatterns = [
-    path('', RandomView.as_view(), name='random')
+    path('', RandomView.as_view(), name='random'),
 ]
-

@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>Wheel of Fortune</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <img src="" alt="">
-    <p>{{a}}</p>
+  <div class="wheel-container">
+    <div class="wheel" id="wheel">
+      <div class="wheel-item">+100</div>
+      <div class="wheel-item">-100</div>
+      <div class="wheel-item">+500</div>
+      <div class="wheel-item">-500</div>
+      <div class="wheel-item">+1000</div>
+      <div class="wheel-item">-1000</div>
+    </div>
+  </div>
+
+  <form id="spin-form" method="post">
+    {% csrf_token %}
+    <input type="hidden" id="result-input" name="result">
+  </form>
+  
+  <button id="spin-button" type="submit">Крутить</button>
+  
+  <script src="/static/js/script.js"></script>
 </body>
 </html>

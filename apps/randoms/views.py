@@ -1,13 +1,12 @@
+import random
 from django.shortcuts import render
 from django.views import View
-from django.http.request import HttpRequest
-from django.http.response import HttpResponse
-import random
+from django.db.models.query import QuerySet
+from django.http import HttpRequest, HttpResponse, JsonResponse
+import json
 
 
 class RandomView(View):
-
-
     def get(self, request: HttpRequest) -> HttpResponse:
         a = random.randint(-100, 100)
         return render(
@@ -17,5 +16,11 @@ class RandomView(View):
                 'a': a
             }
         )
+    
+    def post(self, request: HttpRequest) -> JsonResponse:
+        result: QuerySet = request.POST.get('result')
+        print('результат:', result)
 
+        return JsonResponse({'result': True})
+    
 
